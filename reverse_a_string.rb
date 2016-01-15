@@ -2,7 +2,7 @@
 # returns the reverse. The one caveat: Don't use the reverse method that already
 # comes with Ruby!
 
-def reverse_a_string(string)
+def reverse_a_string(string) 
   array = []
   reversed_string = ""
   array = string.split("")

@@ -1,33 +1,39 @@
-# In this exercise, we've already implemented the class, and you have to write the 
-# driver code. 
-# This class represents a hotel reservation.
+# Complete the method called sum_of_range, which will accept an array containing
+# two numbers, and return the sum of all of the whole numbers within the range of those
+# numbers, inclusive.
 
-class HotelReservation
-  attr_accessor :customer_name, :date, :room_number, :amenities
-
-  def initialize(reservation_info)
-    @customer_name = reservation_info[:customer_name]
-    @date = reservation_info[:date]
-    @room_number = reservation_info[:room_number]
-    @amenitites = []
+def sum_of_range(array)
+  sum = 0
+  (array.sort[0]..array.sort[1]).each do |number|
+    sum += number
   end
-
-  def add_a_fridge
-    @amenities << "fridge"
-  end
-
-  def add_a_crib
-    @amenities << "crib"
-  end
-
-  def add_a_custom_amenity(amenity)
-    @amenities << amenity
-  end
+  return sum
 end
 
+# Driver code - don't touch anything below this line.
+puts "TESTING sum_of_range..."
+puts
 
-# Write your own driver code below! Make sure your code tests the following:
-# The ability to change a room number even after a reservation has already been created
-# The add_a_fridge method
-# The add_a_crib method
-# The add_a_custom_amenity method
+result = sum_of_range([1, 4])
+
+puts "Your method returned:"
+puts result
+puts
+
+if result == 10
+  puts "PASS!"
+else
+  puts "F"
+end
+
+result = sum_of_range([4, 1])
+
+puts "Your method returned:"
+puts result
+puts
+
+if result == 10
+  puts "PASS!"
+else
+  puts "F"
+end

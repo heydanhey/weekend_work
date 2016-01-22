@@ -1,12 +1,113 @@
-# In this exercise, you will be creating two classes AND the driver code to test them.
-# You will create a Tv class and a Remote class. 
+# In this exercise, we've already implemented the class, and you have to write the 
+# driver code. 
+# This class represents a hotel reservation.
 
-# The Tv class will have the attributes: power, volume, and channel. 
+class HotelReservation
+  attr_accessor :customer_name, :date, :room_number, :amenities
 
-# The Remote class will have just one attribute: tv. This will represent which tv it
-# actually controls.
-# The Remote will have the following instance methods: 
-# toggle_power (this will turn off the tv if it's on, or turn it on if it's off)
-# increment_volume (this will increase the tv's volume by 1)
-# decrement_volume (this will decrease the tv's volume by 1)
-# set_channel (this will change the tv's channel to whatever integer is passed to this method)
+  def initialize(reservation_info)
+    @customer_name = reservation_info[:customer_name]
+    @date = reservation_info[:date]
+    @room_number = reservation_info[:room_number]
+    @amenities = []
+  end
+
+  def add_a_fridge
+    @amenities << "fridge"
+  end
+
+  def add_a_crib
+    @amenities << "crib"
+  end
+
+  def add_a_custom_amenity(amenity)
+    @amenities << amenity
+  end
+end
+
+# Write your own driver code below! Make sure your code tests the following:
+# The ability to change a room number even after a reservation has already been created
+# The add_a_fridge method
+# The add_a_crib method
+# The add_a_custom_amenity method
+
+my_reservation = HotelReservation.new({customer_name: "Daniel Hey", date: "July 2, 2016", room_number: 237})
+
+puts "TESTING RESERVATION INFO: -->"
+puts "NAME: #{my_reservation.customer_name}"
+puts "DATE: #{my_reservation.date}"
+puts "ROOM NUMBER: #{my_reservation.room_number}"
+print "AMENITIES: "
+if my_reservation.amenities.empty?
+  print "None"
+else
+  my_reservation.amenities.each do |amenity|
+    print "#{amenity} "
+  end
+end
+puts
+puts "-----------------"
+
+puts "TESTING CHANGE ROOM NUMBER: -->"
+my_reservation.room_number = 666
+puts "NAME: #{my_reservation.customer_name}"
+puts "DATE: #{my_reservation.date}"
+puts "ROOM NUMBER: #{my_reservation.room_number}"
+print "AMENITIES: "
+if my_reservation.amenities.empty?
+  print "None"
+else
+  my_reservation.amenities.each do |amenity|
+    print "#{amenity} "
+  end
+end
+puts
+puts "-----------------"
+
+puts "TESTING ADD A FRIDGE: -->"
+my_reservation.add_a_fridge
+puts "NAME: #{my_reservation.customer_name}"
+puts "DATE: #{my_reservation.date}"
+puts "ROOM NUMBER: #{my_reservation.room_number}"
+print "AMENITIES: "
+if my_reservation.amenities.empty?
+  print "None"
+else
+  my_reservation.amenities.each do |amenity|
+    print "#{amenity} "
+  end
+end
+puts
+puts "-----------------"
+
+puts "TESTING ADD A CRIB: -->"
+my_reservation.add_a_crib
+puts "NAME: #{my_reservation.customer_name}"
+puts "DATE: #{my_reservation.date}"
+puts "ROOM NUMBER: #{my_reservation.room_number}"
+print "AMENITIES: "
+if my_reservation.amenities.empty?
+  print "None"
+else
+  my_reservation.amenities.each do |amenity|
+    print "#{amenity} "
+  end
+end
+puts
+puts "-----------------"
+
+puts "TESTING ADD CUSTOM AMENITY: -->"
+my_reservation.add_a_custom_amenity("ocean view")
+puts "NAME: #{my_reservation.customer_name}"
+puts "DATE: #{my_reservation.date}"
+puts "ROOM NUMBER: #{my_reservation.room_number}"
+print "AMENITIES: "
+if my_reservation.amenities.empty?
+  print "None"
+else
+  my_reservation.amenities.each do |amenity|
+    print "#{amenity} "
+  end
+end
+puts
+puts "-----------------"

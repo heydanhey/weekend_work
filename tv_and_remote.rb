@@ -85,4 +85,6 @@ puts "Volume: #{remote.tv.volume}"
 puts "Channel: #{remote.tv.channel}"
 puts "---------------"
 
+puts "the end"
+
 

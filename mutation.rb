@@ -1,34 +1,42 @@
-# Complete the method called sum_of_range, which will accept an array containing
-# two numbers, and return the sum of all of the whole numbers within the range of those
-# numbers, inclusive.
+# Complete the method called mutation?, which will accept two strings as a parameter
+# and return true if all the letters from the second string are contained within
+# the first string, and false otherwise.
 
-def sum_of_range(array)
-
+def mutation?(base_word, mutation)
+  i = 0
+  mutation.length.times do
+    if base_word.include?(mutation[i])
+      i += 1
+    else
+      return false
+    end
+  end
+  return true
 end
 
 # Driver code - don't touch anything below this line.
-puts "TESTING sum_of_range..."
+puts "TESTING mutation?..."
 puts
 
-result = sum_of_range([1, 4])
+result = mutation?("burly", "ruby")
 
 puts "Your method returned:"
 puts result
 puts
 
-if result == 10
+if result == true
   puts "PASS!"
 else
   puts "F"
 end
 
-result = sum_of_range([4, 1])
+result = mutation?("burly", "python")
 
 puts "Your method returned:"
 puts result
 puts
 
-if result == 10
+if result == false
   puts "PASS!"
 else
   puts "F"
